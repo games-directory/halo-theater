@@ -163,6 +163,7 @@ fn one_line(message: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::path::Path;
 
     fn parse(args: &[&str]) -> Result<Command, String> {
         parse_args(args.iter().map(OsString::from))
@@ -179,11 +180,13 @@ mod tests {
         else {
             panic!()
         };
-        assert_eq!(options.film, PathBuf::from("films/one"));
+        assert_eq!(options.film, Path::new("films/one"));
         assert!(options.pretty && options.summaries_only);
-        assert!(
-            matches!(parse(&["--", "--pretty"]), Ok(Command::Run(options)) if options.film == PathBuf::from("--pretty"))
-        );
+        let Ok(Command::Run(options)) = parse(&["--", "--pretty"]) else {
+            panic!()
+        };
+        assert_eq!(options.film, Path::new("--pretty"));
+        assert!(!options.pretty);
     }
 
     #[test]
