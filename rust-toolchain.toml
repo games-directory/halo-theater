@@ -1,0 +1,5 @@
+# halo_api needs Rust 1.96 (edition 2024). Pinned so every release builds with the same compiler.
+[toolchain]
+channel = "1.96.0"
+components = ["clippy", "rustfmt"]
+profile = "minimal"

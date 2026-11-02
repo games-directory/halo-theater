@@ -1,0 +1,24 @@
+[package]
+name = "halo-theater"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+license = "Apache-2.0"
+description = "Decode a Halo Infinite Theater film into JSON with the halo_api crate's v41 decoder."
+repository = "https://github.com/games-directory/halo-theater"
+readme = "README.md"
+publish = false
+
+[dependencies]
+# The Theater decoder from nuzzles/halo_api pull request #5 ("feat: decode Theater films").
+# Pinned to one commit; keep HALO_API_REV in src/main.rs in step with it.
+halo_api = { git = "https://github.com/nuzzles/halo_api", rev = "0aaa05bf2e6b0b905510f51d7473181bde727ec6" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+flate2 = "1"
+
+[profile.release]
+lto = "thin"
+strip = true
