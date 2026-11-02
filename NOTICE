@@ -1,0 +1,24 @@
+halo-theater
+Copyright 2026 games.directory
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This product includes halo_api (https://github.com/nuzzles/halo_api),
+Copyright (c) 2026 Spencer C. Imbleau, used under the Apache License,
+Version 2.0 (halo_api is dual-licensed MIT OR Apache-2.0). The Theater
+film decoder comes from halo_api pull request #5, "feat: decode Theater
+films" (https://github.com/nuzzles/halo_api/pull/5), at commit
+0aaa05bf2e6b0b905510f51d7473181bde727ec6.
+
+tests/fixtures/runtime-summaries-v41.json is copied unchanged from
+halo_api's src/theater/fixtures/ at that commit, and the synthetic film
+builder in tests/cli.rs follows halo_api's own runtime tests.
+
+halo_api's Theater module builds on Theater film research by Spencer
+Imbleau and Guillaume Sitbon, including the parsing research in LevelUp
+(https://github.com/JGtm/LevelUp). Spencer Imbleau's work was inspired by
+Den Delimarsky's investigation of Halo Infinite film files
+(https://den.dev/blog/extracting-stats-film-files-halo-infinite/).
+
+Halo and Halo Infinite are trademarks of Microsoft Corporation. This
+project is not affiliated with or endorsed by Microsoft or Halo Studios.
